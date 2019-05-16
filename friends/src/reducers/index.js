@@ -13,6 +13,21 @@ const initialState = {
         ...state,
         fetching: true
       }
+      case GET_FRIENDS_SUCCESS:
+      return {
+        ...state,
+        friends: action.payload,
+        fetching: false
+      }
+      case GET_FRIENDS_FAILURE:
+      return {
+        ...state,
+        fetching: false,
+        error: action.payload
+      }
+      default:
+        return state;
     }
-}
-export default reducer;
+  };
+  
+  export default reducer

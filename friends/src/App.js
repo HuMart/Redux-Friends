@@ -1,20 +1,23 @@
 import React from 'react';
-import Login from './components/Login';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import FriendsList from './components/FriendsList';
 
 class App extends React.Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <Route path='./login' component={Login} />
+          <Navigation />
+          <Route path="/login" component={Login} />
+          <PrivateRoute exact path="/friendslist" component={FriendsList} />
         </div>
       </Router>
-      
     );
   }
-  
 }
 
 export default App;
